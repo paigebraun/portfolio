@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap');
+
+:root {
+    font-family: Montserrat, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+  
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-text-size-adjust: 100%;
+  }
+
+body {
+    margin: 0;
+}
+
+/* COLOR ANIMATION */
+#root {
+    padding-inline-end: 40px;
+    padding-inline-start: 40px;
+}
+  
+.wrapper {
+	background: linear-gradient(-45deg, #ffeab4, #DDEFBB, #add8e6, rgb(255, 184, 184));
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
+}
+
+#root {
+    background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    position: relative;
+    left: 0;
+    right: 0;
+    height: 60vh; /* Height of the effect */
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+

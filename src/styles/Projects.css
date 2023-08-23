@@ -1,0 +1,85 @@
+.project {
+    text-decoration: none;
+    color: black;
+    display: flex;
+    gap: 5%;
+    margin-top: 35px;
+    position: relative;
+}
+
+.project:hover img {
+    filter: brightness(60%);
+    transition: all .5s ease;
+}
+
+.project:hover .bx-right-arrow-alt {
+    opacity: 1;
+    transition: opacity .5s ease-in;
+}
+
+.projectText {
+    width: 50%;
+}
+
+.projectImg {
+    width: 50%;
+    cursor: pointer;
+}
+
+.projectImg img {
+    width: 100%;
+    width: -webkit-fill-available;
+    width: -moz-available;
+    border-radius: 15px;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.title h2 {
+    font-weight: 600;
+    margin: 0;
+}
+
+.bx-right-arrow-alt {
+    font-size: 2em;
+    opacity: 0;
+}
+
+/* Position preview and code links within the card view */
+.project .projectLink {
+    text-decoration: none;
+    color: black;
+}
+
+.project .projectLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.externalLinks a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    z-index: 1;
+}
+
+.externalLinks a:hover {
+    text-decoration: underline;
+}
+
+.externalLinks {
+    display: flex;
+    gap: 20px;
+}
+
+.bx-link-external {
+    margin-left: 5px;
+}

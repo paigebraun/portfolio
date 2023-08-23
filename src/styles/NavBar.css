@@ -1,0 +1,42 @@
+.nav-list {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin: 0;
+    padding-top: 20px;
+    padding-inline-start: 0;
+}
+
+.nav-item {
+    list-style: none;
+    margin-right: 2rem;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: black;
+    transition: all 200ms ease-in;
+}
+
+.nav-item a:hover {
+    color: #7F7F7F;
+}
+
+.nav-item:first-child {
+    margin-right: auto;
+    width: 150px;
+}
+
+.name {
+    display: flex;
+    width: 145px;
+}
+
+.name img {
+    max-width: 25px;
+}
+
+.name a {
+    margin-left: 12px;
+}
+

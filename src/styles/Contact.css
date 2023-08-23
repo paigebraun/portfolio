@@ -1,0 +1,10 @@
+.contact {
+    font-size: 1.5em;
+    margin-top: 150px;
+    margin-bottom: 150px;
+}
+
+.contact h3,
+.contact p {
+    margin: 0;
+}

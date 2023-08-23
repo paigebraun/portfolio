@@ -1,0 +1,15 @@
+.footer a {
+    text-decoration: unset;
+    color: black;
+}
+
+.footer {
+    display: flex;
+    gap: 30px;
+    justify-content: flex-end;
+    padding-bottom: 50px;
+}
+
+.footer a:hover {
+    color: #7F7F7F
+}
