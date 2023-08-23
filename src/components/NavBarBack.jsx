@@ -1,15 +1,14 @@
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
-import asterisk from '../assets/Asterisk.svg';
 
-const NavBar = () => {
+const NavBarBack = () => {
     return (
         <nav>
             <ul className='nav-list'>
-                <li className='nav-item name'>
-                    <img src={asterisk} alt='asterisk svg' />
-                    <Link to='/'>Paige Braun</Link>
+                <li className='nav-item'>
+                    <i className='bx bx-left-arrow-alt'></i>
+                    <HashLink smooth={true} to='/projects/#projectContainer'>Back</HashLink>
                 </li>
                 <li className='nav-item'>
                     <HashLink smooth={true} to='/projects/#projectContainer'>Projects</HashLink>
@@ -28,4 +27,4 @@ const NavBar = () => {
     )
 }
 
-export default NavBar
+export default NavBarBack

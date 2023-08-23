@@ -13,3 +13,33 @@
     transform: none;
     visibility: visible;
 }
+
+/* COLOR ANIMATION */  
+.wrapper-app {
+	background: linear-gradient(-45deg, #ffeab4, #DDEFBB, #add8e6, rgb(255, 184, 184));
+	background-size: 200% 200%;
+	animation: gradient 10s ease infinite;
+}
+
+.root-app {
+    background-image: linear-gradient(to top, rgba(255,255,255,1), rgba(255,255,255,0));
+    position: relative;
+    left: 0;
+    right: 0;
+    height: 60vh; /* Height of the effect */
+    padding-inline-end: 40px;
+    padding-inline-start: 40px;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}

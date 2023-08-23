@@ -1,0 +1,22 @@
+.root-cool-links {
+    padding-inline-end: 40px;
+    padding-inline-start: 40px;
+}
+
+.sideByside {
+    display: flex;
+    gap: 15px;
+    margin: 10px 0 50px 0;
+}
+
+.image-1,
+.image-2,
+.image-3 {
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.sideByside img {
+    max-width: 50%;
+}
+
