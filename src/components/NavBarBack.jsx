@@ -8,10 +8,10 @@ const NavBarBack = () => {
             <ul className='nav-list'>
                 <li className='nav-item'>
                     <i className='bx bx-left-arrow-alt'></i>
-                    <HashLink smooth={true} to='/projects/#projectContainer'>Back</HashLink>
+                    <HashLink smooth={true} to='/#projects'>Back</HashLink>
                 </li>
                 <li className='nav-item'>
-                    <HashLink smooth={true} to='/projects/#projectContainer'>Projects</HashLink>
+                    <HashLink smooth={true} to='/#projects'>Projects</HashLink>
                 </li>
                 <li className='nav-item'>
                     <Link to='/about'>About</Link>

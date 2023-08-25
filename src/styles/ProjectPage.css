@@ -1,4 +1,9 @@
 /*styles that apply to all individual project pages*/
+.root-project-page {
+    padding-inline-end: 60px;
+    padding-inline-start: 60px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
@@ -27,4 +32,26 @@
 
 .project-external a:hover {
     text-decoration: underline;
+}
+
+.builtWith {
+    margin-bottom: 30px;
+}
+
+.sideByside {
+    display: flex;
+    gap: 1%;
+    margin: 10px 0;
+}
+
+.image-1,
+.image-2,
+.image-3,
+.image-4 {
+    border-radius: 15px;
+    max-width: 100%;
+}
+
+.sideByside img {
+    max-width: 49.5%;
 }

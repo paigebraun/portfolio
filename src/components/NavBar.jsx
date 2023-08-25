@@ -12,7 +12,7 @@ const NavBar = () => {
                     <Link to='/'>Paige Braun</Link>
                 </li>
                 <li className='nav-item'>
-                    <HashLink smooth={true} to='/projects/#projectContainer'>Projects</HashLink>
+                    <HashLink smooth={true} to='/#projects'>Projects</HashLink>
                 </li>
                 <li className='nav-item'>
                     <Link to='/about'>About</Link>

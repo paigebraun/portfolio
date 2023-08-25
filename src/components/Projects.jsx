@@ -1,9 +1,7 @@
 import '../styles/Projects.css';
 import { Link } from 'react-router-dom';
 
-function LivePreview( {link} ) {
-    console.log(link);
-    console.log(link=='');
+function LivePreview({link}) {
     if (link!=='') {
         return (
             <a href={link} target='_blank'>Live Preview
@@ -16,9 +14,9 @@ function LivePreview( {link} ) {
     }
 }
 
-const Projects = ({projectList, FadeInSection}) => {
+function Projects({projectList, FadeInSection}) {
     return (
-        <div id='projectContainer'>
+        <div id='projects'>
         {projectList.map((project)=> (
             <FadeInSection key={project.id}>
             <div className='project'>
@@ -49,4 +47,4 @@ const Projects = ({projectList, FadeInSection}) => {
     )
 }
 
-export default Projects
+export {Projects, LivePreview}

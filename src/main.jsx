@@ -6,7 +6,7 @@ import './styles/index.css';
 
 //import components
 import About from './About.jsx';
-import CoolLinks from './CoolLinks.jsx';
+import ProjectPage from './components/ProjectPage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,9 +22,9 @@ const router = createBrowserRouter([
     element: <App />,
   },
   {
-    path: '/projects/cool-links',
-    element: <CoolLinks />
-  }
+    path: '/projects/:id',
+    element: <ProjectPage />,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
