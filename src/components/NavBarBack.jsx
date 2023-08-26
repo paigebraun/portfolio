@@ -17,7 +17,7 @@ const NavBarBack = () => {
                     <Link to='/about'>About</Link>
                 </li>
                 <li className='nav-item'>
-                    <a href='#'>Creative</a>
+                    <Link to='/creative'>Creative</Link>
                 </li>
                 <li className='nav-item'>
                     <a href='#'>Contact</a>

@@ -7,6 +7,7 @@ import './styles/index.css';
 //import components
 import About from './About.jsx';
 import ProjectPage from './components/ProjectPage.jsx';
+import Creative from './components/Creative.jsx'
 
 const router = createBrowserRouter([
   {
@@ -18,12 +19,12 @@ const router = createBrowserRouter([
     element: <About />,
   },
   {
-    path: '/projects',
-    element: <App />,
-  },
-  {
     path: '/projects/:id',
     element: <ProjectPage />,
+  },
+  {
+    path: '/creative',
+    element: <Creative />,
   },
 ]);
 

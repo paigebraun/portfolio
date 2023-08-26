@@ -10,6 +10,7 @@ import { LivePreview } from './Projects';
 import ScrollToTop from '../ScrollToTop';
 
 function ImgCount({imgs}) {
+    //display images based on how many images we have
     if (imgs.length < 3) {
         return (
             <div>

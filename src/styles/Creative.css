@@ -1,0 +1,87 @@
+.root-creative {
+    padding-inline-end: 60px;
+    padding-inline-start: 60px;
+}
+
+.creativeHeader h2 {
+    font-weight: 400;
+    max-width: 380px;
+    text-align: center;
+}
+
+.creativeHeader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 50px 0;
+}
+
+.creativeGrid {
+    display: grid;
+    gap: 20px;
+    grid-auto-rows: min-content;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    grid-template-rows: repeat(2, min-content);
+    text-align: center;
+    height: min-content;
+    position: relative;
+    max-width: 1400px;
+}
+
+.creativeSection {
+    width: 100%;
+    height: 100%;
+}
+
+.imgWrapper {
+    position: relative;
+    text-align: center;
+    background-color: black;
+    border-radius: 15px;
+}
+
+.imgWrapper p {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    font-size: 1.5em;
+    margin: 0px;
+    padding: 0.2em 0;
+}
+
+.imgWrapper img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    object-position: center center;
+    object-fit: cover;
+    image-rendering: auto;
+    border-radius: 15px;
+    opacity: .45;
+}
+
+.imgWrapper p {
+    overflow: hidden;
+}
+
+.imgWrapper p::after {
+    opacity: 1;
+    transform: translate3d(-100%, 0, 0);
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0.1em;
+    background-color: white;
+    transition: opacity 300ms, transform 300ms;
+}
+
+.imgWrapper p:hover::after,
+.imgWrapper p:focus::after {
+    transform: translate3d(0, 0, 0);
+}
