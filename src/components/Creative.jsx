@@ -1,10 +1,11 @@
 import '../styles/Creative.css';
-import { FadeInSection } from '../App';
+import { Link } from 'react-router-dom';
 
 //import components
 import NavBar from './NavBar'
 import Contact from './Contact';
 import Footer from './Footer';
+import { FadeInSection } from '../App';
 
 //import images
 import designThumbnail from '../assets/Design-Thumbnail.png';
@@ -21,30 +22,30 @@ const Creative = () => {
                 <h2>Check out some of my creative work below.</h2>  
             </div>
             <div className='creativeGrid'>
-                <a href='#' className='creativeSection video'>
+                <Link to='/creative/video' className='creativeSection video'>
                     <div className='imgWrapper'>
                         <p>Video</p>
                         <img src={videoThumbnail} alt='video'></img>
                     </div>
-                </a>
-                <a href='#' className='creativeSection design'>
+                </Link>
+                <Link to='/creative/graphic-design' className='creativeSection design'>
                     <div className='imgWrapper'>
-                        <p>Design</p>
+                        <p>Graphic Design</p>
                         <img src={designThumbnail} alt='design'></img>
                     </div>
-                </a>
-                <a href='#' className='creativeSection photo'>
+                </Link>
+                <Link to='/creative/photography' className='creativeSection photo'>
                     <div className='imgWrapper'>
                         <p>Photography</p>
                         <img src={photoThumbnail} alt='photo'></img>
                     </div>
-                </a>
-                <a href='#' className='creativeSection writing'>
+                </Link>
+                <Link to='/creative/screenwriting' className='creativeSection writing'>
                     <div className='imgWrapper'>
                         <p>Screenwriting</p>
                         <img src={writingThumbnail} alt='writing'></img>
                     </div>
-                </a>
+                </Link>
             </div>
             <Contact FadeInSection={FadeInSection} />
             </FadeInSection>

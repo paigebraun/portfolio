@@ -1,14 +1,15 @@
 import '../styles/NavBar.css';
 import { Link } from 'react-router-dom';
 import { HashLink } from 'react-router-hash-link';
+import { useNavigate } from 'react-router-dom';
 
 const NavBarBack = () => {
+    let navigate = useNavigate();
     return (
         <nav>
             <ul className='nav-list'>
                 <li className='nav-item'>
-                    <i className='bx bx-left-arrow-alt'></i>
-                    <HashLink smooth={true} to='/#projects'>Back</HashLink>
+                    <button onClick={()=>navigate(-1)}><i className='bx bx-left-arrow-alt'></i>Back</button>
                 </li>
                 <li className='nav-item'>
                     <HashLink smooth={true} to='/#projects'>Projects</HashLink>

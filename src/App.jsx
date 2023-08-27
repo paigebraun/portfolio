@@ -47,6 +47,14 @@ const projectList = [
     builtWith: 'HTML, CSS, Javascript, Phaser 3, TileMaps', id: uuidv4()}
 ]
 
+//list of creative objects
+const creativeList = [
+  { title: 'Video', path: 'video', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
+  { title: 'Graphic Design', path: 'graphic-design', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
+  { title: 'Photography', path: 'photography', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
+  { title: 'Screenwriting', path: 'screenwriting', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()}
+]
+
 //fade up animation
 function FadeInSection(props) {
   const [isVisible, setVisible] = useState(false);
@@ -81,4 +89,4 @@ function App() {
   )
 }
 
-export {App, FadeInSection, projectList}
+export {App, FadeInSection, projectList, creativeList}

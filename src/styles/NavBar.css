@@ -22,7 +22,8 @@
     transition: all 200ms ease-in;
 }
 
-.nav-item a:hover {
+.nav-item a:hover,
+.nav-item button:hover {
     color: #7F7F7F;
 }
 
@@ -31,6 +32,13 @@
     width: 150px;
     margin-left: 0;
     display: flex;
+}
+
+.nav-item button {
+    all: unset;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
 }
 
 .name {

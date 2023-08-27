@@ -8,6 +8,7 @@ import './styles/index.css';
 import About from './About.jsx';
 import ProjectPage from './components/ProjectPage.jsx';
 import Creative from './components/Creative.jsx'
+import CreativePage from './components/CreativePage.jsx';
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
     path: '/creative',
     element: <Creative />,
   },
+  {
+    path: '/creative/:id',
+    element: <CreativePage />,
+  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
