@@ -41,6 +41,7 @@ function GetCreative(current) {
     if (current.current == 'Graphic Design') {
         return (
             <div>
+                <ScrollToTop />
                 <img className='graphic' src={ graphic1 }></img>
                 <img className='graphic' src={ graphic2 }></img>
                 <div className='sideByside'>
@@ -63,6 +64,7 @@ function GetCreative(current) {
     if (current.current == 'Screenwriting') {
         return (
             <>
+                <ScrollToTop />
                 <div className='gpdbtContainer'>
                     <img className='gpdbtLogo' src={ GPDBTLogo }></img>
                 </div>
@@ -80,7 +82,7 @@ function GetCreative(current) {
                 <p>Fearing for the safety of their own first grader, a couple and their best friend become 
                     deeply invested in a police investigation and eventually take matters into their own hands 
                     when a first grade girl suddenly goes missing.</p>
-                <iframe className='pdfView' src={`${opening}#view=fitH`} title='GPDBT' />
+                <embed className='pdfView' src='https://drive.google.com/file/d/1R5G-s9frdQRNER8ygYiix3KnOgToiCfq/preview?usp=sharing'></embed>
             </>  
         )
     }

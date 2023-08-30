@@ -5,7 +5,7 @@ const Contact = ({ FadeInSection }) => {
         <FadeInSection>
         <div className='contact'>
             <h3>Let's work together.</h3>
-            <p>paigembraun@gmail.com</p>
+            <a href='mailto: paigembraun@gmail.com'>paigembraun@gmail.com</a>
         </div> 
         </FadeInSection>
     )

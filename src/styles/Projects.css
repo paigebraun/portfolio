@@ -1,3 +1,8 @@
+#projects {
+    max-width: 1400px;
+    margin: auto;
+}
+
 .project {
     text-decoration: none;
     color: black;
@@ -7,18 +12,9 @@
     position: relative;
 }
 
-.project:hover img {
-    filter: brightness(60%);
-    transition: all .5s ease;
-}
-
-.project:hover .bx-right-arrow-alt {
-    opacity: 1;
-    transition: opacity .5s ease-in;
-}
-
 .projectText {
     width: 50%;
+    font-size: 1.2rem;
 }
 
 .projectImg {
@@ -76,10 +72,7 @@
     color: black;
     display: block;
     z-index: 1;
-}
-
-.externalLinks a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 .externalLinks {
@@ -89,4 +82,59 @@
 
 .bx-link-external {
     margin-left: 5px;
+}
+
+@media only screen and (max-width: 1200px) {
+    .project {
+        flex-direction: column;
+        margin-top: 55px;
+    }
+
+    .projectText {
+        width: 100%;
+    }
+
+    .projectImg {
+        width: 100%;
+        margin-top: 30px;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .projectText {
+        font-size: .9em;
+    }
+
+    .project .bx-right-arrow-alt {
+        opacity: 1;
+    }
+}
+
+@media (hover:hover) {
+    .externalLinks a:hover {
+        text-decoration: underline;
+    }
+    .project:hover img {
+        filter: brightness(60%);
+        transition: all .5s ease;
+    }
+    
+    .project:hover .bx-right-arrow-alt {
+        opacity: 1;
+        transition: opacity .5s ease-in;
+    }
+}
+
+@media (hover:none) {
+    .project:hover img {
+        filter: inherit;
+        transition: inherit;
+    }
+    .project:hover .bx-right-arrow-alt {
+        opacity: inherit;
+        transition: inherit;
+    }
+    .externalLinks a:hover {
+        text-decoration: inherit;
+    }
 }

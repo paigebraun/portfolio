@@ -2,9 +2,43 @@
     font-size: 1.5em;
     margin-top: 150px;
     margin-bottom: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1400px;
 }
 
 .contact h3,
-.contact p {
+.contact a {
     margin: 0;
+}
+
+.contact a {
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 900px) {
+    .contact {
+        font-size: 1.2em;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .contact {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+}
+
+@media (hover:hover) {
+    .contact a:hover {
+        color: #7F7F7F;
+    }
+}
+
+@media (hover:none) {
+    .contact a:hover {
+        color: inherit;
+    }
 }

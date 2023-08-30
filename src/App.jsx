@@ -40,7 +40,7 @@ const projectList = [
     code: 'https://github.com/paigebraun/todo-list', description: 'A minimal, user-friendly to do list application that presents your daily tasks up front. Seamlessly transition to a comprehensive list view, add new tasks and delete old ones, or move tasks to different lists. Created to practice OOP and ES6 module syntax.', 
     builtWith: 'HTML, CSS, Javascript, Webpack', id: uuidv4()},
   { title: 'Jazzberry Blue Maps', path: 'maps', img: mapsThumbnail, displayImg: [maps1, maps2, maps3], preview: '', 
-    code: '#', description: 'A recreation of maps designed by artist Jazzberry Blue with code. The program takes in shape layers and intricate coordinate data, transforms all intersecting streets into polygons, and randomly fills those polygons with a pre-defined selection of colors.',
+    code: 'https://github.com/paigebraun/Maps', description: 'A recreation of maps designed by artist Jazzberry Blue with code. The program takes in shape layers and intricate coordinate data, transforms all intersecting streets into polygons, and randomly fills those polygons with a pre-defined selection of colors.',
     builtWith: 'Python, Matplotlib, GeoPandas, Shapely, NumPy', id: uuidv4()},
   { title: "Fafnir's Dragon", path: 'fafnirs-dragon', img: fafnirThumbnail, displayImg: [fafnirThumbnail, fafnir1, fafnir2, fafnir3], preview: 'https://paigebraun.github.io/fafnirs-dragon/', 
     code: ' https://github.com/paigebraun/fafnirs-dragon', description: 'A 2D platform game created as part of a semester long class with two classmates. The game implements two playing levels for users to choose from and has a high score ranking at the end of each play. Maneuver through intricately designed environments and beat the final boss to win the game.', 
@@ -49,10 +49,9 @@ const projectList = [
 
 //list of creative objects
 const creativeList = [
-  { title: 'Video', path: 'video', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
-  { title: 'Graphic Design', path: 'graphic-design', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
-  { title: 'Photography', path: 'photography', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()},
-  { title: 'Screenwriting', path: 'screenwriting', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', id: uuidv4()}
+  { title: 'Video', path: 'video', description: 'Click play below to see my reel of work that I have produced and edited for various clients including Dell Technologies, Marriott, and Nutanix. I greatly enjoyed the collaborative and creative process behind each of these projects.', id: uuidv4()},
+  { title: 'Graphic Design', path: 'graphic-design', description: 'Below are some work samples that I designed using Photoshop and Illustrator. These projects highlight my ability to translate concepts into visuals that resonate with audiences.', id: uuidv4()},
+  { title: 'Screenwriting', path: 'screenwriting', description: 'Good People Do Bad Things is a limited series I wrote and developed in a screenwriting thesis class at UT. For fun, I also designed a logo for the show. You will see the illustration below as well as some more about the show and, if you are interested, scroll down to read the first pages of the pilot episode.', id: uuidv4()}
 ]
 
 //fade up animation
@@ -79,8 +78,10 @@ function App() {
   return (
     <div className='wrapper-app'>
       <div className='root-app'>
-      <NavBar />
-      <Hero FadeInSection={FadeInSection} />
+      <div className='navHero'>
+        <NavBar />
+        <Hero FadeInSection={FadeInSection} />
+      </div>
       <Projects projectList={projectList} FadeInSection={FadeInSection} />
       <Contact FadeInSection={FadeInSection} />
       <Footer />

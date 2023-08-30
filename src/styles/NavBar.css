@@ -1,9 +1,19 @@
+.navHero {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+nav {
+    padding-top: 20px;
+    position: relative;
+}
+
 .nav-list {
     display: flex;
     justify-content: flex-end;
     align-items: center;
     margin: 0;
-    padding-top: 20px;
     padding-inline-start: 0;
 }
 
@@ -20,11 +30,6 @@
     text-decoration: none;
     color: black;
     transition: all 200ms ease-in;
-}
-
-.nav-item a:hover,
-.nav-item button:hover {
-    color: #7F7F7F;
 }
 
 .nav-item:first-child {
@@ -52,5 +57,101 @@
 
 .name a {
     margin-left: 12px;
+}
+
+/* Collapse menu */
+.collapse {
+    all: unset;
+    cursor: pointer;
+    font-size: 2.2em;
+    align-items: center;
+    display: none;
+    position: fixed;
+    right: 0;
+    top: 0;
+    padding: 15px;
+}
+
+
+@media only screen and (max-width: 810px) {
+    .collapse {
+        display: flex;
+    }
+
+    .collapse .bx-x {
+        display: none;
+    }
+
+    .collapse.expanded .bx-x {
+        display: block;
+    }
+
+    .collapse.expanded .bx-menu {
+        display: none;
+    }
+
+    .nav-item {
+        display: none;
+        opacity: 0;
+    }
+
+    .name {
+        opacity: 1;
+    }
+
+    .nav-item.expanded {
+        display: block;
+        opacity: 1;
+        transition: opacity 3s ease-in-out;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0px;
+        padding: 20px;
+    }
+
+    nav.expanded {
+        background-color: white;
+        transition: background-color .5s ease-in-out;
+    }
+
+    .root-app {
+        padding-inline-start: 0px;
+        padding-inline-end: 0px;
+    }
+
+    nav.expanded .name {
+        margin-bottom: 20px;
+    }
+
+    .fade-in-section {
+        padding-inline-start: 20px;
+        padding-inline-end: 20px;
+        margin: 0;
+    }
+}
+
+
+@media (hover:hover) {
+    .nav-item a:hover,
+    .nav-item button:hover {
+    color: #7F7F7F;
+    }
+}
+
+@media (hover:none) {
+    .nav-item a:hover,
+    .nav-item button:hover {
+        color: inherit;
+    }
 }
 

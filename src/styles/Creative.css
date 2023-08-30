@@ -1,12 +1,15 @@
 .root-creative {
     padding-inline-end: 60px;
     padding-inline-start: 60px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .creativeHeader h2 {
     font-weight: 400;
-    max-width: 380px;
+    max-width: 430px;
     text-align: center;
+    font-size: 1.7em;
 }
 
 .creativeHeader {
@@ -50,6 +53,7 @@
     font-size: 1.5em;
     margin: 0px;
     padding: 0.2em 0;
+    width: max-content;
 }
 
 .imgWrapper img {
@@ -84,4 +88,20 @@
 .imgWrapper p:hover::after,
 .imgWrapper p:focus::after {
     transform: translate3d(0, 0, 0);
+}
+
+@media only screen and (max-width: 810px) {
+    .creativeHeader h2 {
+        font-size: 1.2em;
+        max-width: 300px;
+    }
+
+    .creativeGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .root-creative {
+        padding-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
 }

@@ -1,28 +1,40 @@
 .heroContainer {
-    height: 80vh;
-    position: relative;
-    margin-bottom: 200px;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .hero {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
-    max-width: 70%;
-    position: absolute;
+    max-width: 60%;
     bottom: 0;
 }
 
 .hero p,
 .hero h3 {
     margin: 0;
-    font-size: 1.5em;
 }
 
 .hero p {
-    font-size: 1.4em;
+    font-size: 1.7em;
 }
 
 .hero h3 {
-    font-size: 2em;
+    font-size: 2.3em;
+}
+
+@media only screen and (max-width: 900px) {
+    .hero {
+        max-width: 100%;
+    }
+
+    .hero p {
+        font-size: 1.2em;
+    }
+
+    .hero h3 {
+        font-size: 2em;
+    }
 }

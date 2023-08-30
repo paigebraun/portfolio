@@ -2,6 +2,8 @@
 .root-project-page {
     padding-inline-end: 60px;
     padding-inline-start: 60px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .container {
@@ -23,15 +25,13 @@
 .project-external {
     display: flex;
     flex-direction: column;
+    gap: 6px;
 }
 
 .project-external a {
     text-decoration: none;
     color: black;
-}
-
-.project-external a:hover {
-    text-decoration: underline;
+    font-weight: 600;
 }
 
 .builtWith {
@@ -50,8 +50,49 @@
 .image-4 {
     border-radius: 15px;
     max-width: 100%;
+    border: 1px solid lightgrey;
 }
 
 .sideByside img {
     max-width: 49.5%;
+}
+
+@media (hover:hover) {
+    .project-external a:hover {
+        text-decoration: underline;
+    }
+}
+
+@media (hover:none) {
+    .project-external a:hover {
+        text-decoration: none;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .description {
+        flex-direction: column;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    .container p {
+        max-width: 100%;
+    }
+
+    .builtWith {
+        margin-top: 30px;
+    }
+
+    .project-external {
+        flex-direction: row;
+        gap: 28px;
+    }
+
+    .root-project-page {
+        padding-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
 }

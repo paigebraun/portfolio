@@ -34,12 +34,12 @@ const Creative = () => {
                         <img src={designThumbnail} alt='design'></img>
                     </div>
                 </Link>
-                <Link to='/creative/photography' className='creativeSection photo'>
+                <a href='https://paigebraun.github.io/photo-gallery/' target='_blank' className='creativeSection photo'>
                     <div className='imgWrapper'>
                         <p>Photography</p>
                         <img src={photoThumbnail} alt='photo'></img>
                     </div>
-                </Link>
+                </a>
                 <Link to='/creative/screenwriting' className='creativeSection writing'>
                     <div className='imgWrapper'>
                         <p>Screenwriting</p>

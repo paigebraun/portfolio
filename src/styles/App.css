@@ -16,7 +16,7 @@
 
 /* COLOR ANIMATION */  
 .wrapper-app {
-	background: linear-gradient(-45deg, #ffeab4, #DDEFBB, #add8e6, rgb(255, 184, 184));
+	background: linear-gradient(-45deg, #a5f1f2, #a5f1f2, #c7d0fe, #ffbac2, #fed7b3, #fed7b3);
 	background-size: 200% 200%;
 	animation: gradient 10s ease infinite;
 }
@@ -42,4 +42,12 @@
 	100% {
 		background-position: 0% 50%;
 	}
+}
+
+.navHero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 90vh;
+    margin-bottom: 200px;
 }

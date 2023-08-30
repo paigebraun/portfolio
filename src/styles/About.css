@@ -1,6 +1,8 @@
 .root-about {
     padding-inline-end: 60px;
     padding-inline-start: 60px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .heroContainer-about {
@@ -23,9 +25,69 @@
 .hero-about p,
 .heroContainer-about p {
     font-size: 1.4em;
-    max-width: 70%;
+    max-width: 55%;
 }
 
 .hero-about h3 {
     font-size: 2em;
+}
+
+.skillsGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    max-width: 500px;
+}
+
+.skills,
+.education {
+    margin-top: 50px;
+}
+
+.skills h3,
+.education h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+}
+
+.skills p,
+.education p {
+    margin: 0;
+    max-width: 70%;
+    font-size: 1.4em;
+}
+
+.education p:first-of-type {
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 900px) {
+    .hero-about,
+    .heroContainer-about p,
+    .hero-about p,
+    .education p {
+        max-width: 100%;
+    }
+}
+
+@media only screen and (max-width: 810px) {
+    .root-about {
+        padding-inline-end: 20px;
+        padding-inline-start: 20px;
+    }
+
+    .hero-about p,
+    .heroContainer-about p,
+    .skills p,
+    .education p {
+        font-size: 1.2em;
+    }
+    
+    .hero-about h3 {
+        font-size: 1.8em;
+    }
+
+    .heroContainer-about {
+        margin-top: 45px;
+    }
 }

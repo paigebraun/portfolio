@@ -1,10 +1,16 @@
 .root-creative-page {
     padding-inline-end: 60px;
     padding-inline-start: 60px;
+    max-width: 1400px;
+    margin: auto;
 }
 
 .creativePageHeader {
     margin: 50px 0;
+}
+
+.fade-in-section > h2 {
+    margin-top: 50px;
 }
 
 /* Youtube Embed */
@@ -52,4 +58,20 @@
     height: 100vh;
     border: none;
     border-radius: 15px;
+}
+
+
+@media only screen and (max-width: 810px) {
+    .root-creative-page {
+        padding-inline-end: 0px;
+        padding-inline-start: 0px;
+    }
+
+    .gpdbtLogo {
+        width: 100%;
+    }
+
+    .creativePageHeader {
+        margin-top: 20px;
+    }
 }
