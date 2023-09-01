@@ -27,7 +27,7 @@ function ImgCount({imgs}) {
                     <img className='image-2' src={ imgs[1] } alt='Project Image'></img>
                     <img className='image-3' src={ imgs[2] } alt='Project Image'></img>
                 </div>
-            <img className='image-4' src={ imgs[3] } alt='Project Image'></img>
+            <img className='image-4' src={ imgs[3] }></img>
             </div>
         )
     }
