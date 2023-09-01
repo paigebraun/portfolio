@@ -9,6 +9,10 @@
     margin: 50px 0;
 }
 
+.creativePageHeader p {
+    font-size: 1.2em;
+}
+
 .fade-in-section > h2 {
     margin-top: 50px;
 }

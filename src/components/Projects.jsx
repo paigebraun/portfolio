@@ -27,7 +27,7 @@ function Projects({projectList, FadeInSection}) {
                         </h2>
                         <i className='bx bx-right-arrow-alt'></i>
                     </div>
-                    <p>{project.description}</p>
+                    <p>{project.summary}</p>
                     <div className='externalLinks'>
                         <LivePreview 
                             link={project.preview}

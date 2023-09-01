@@ -8,10 +8,10 @@ import Footer from './Footer';
 import { FadeInSection } from '../App';
 
 //import images
-import designThumbnail from '../assets/Design-Thumbnail.png';
-import photoThumbnail from '../assets/Photo-Thumbnail.png';
-import videoThumbnail from '../assets/Video-Thumbnail.png';
-import writingThumbnail from '../assets/Writing-Thumbnail.png';
+import designThumbnail from '../assets/Design-Thumbnail.webp';
+import photoThumbnail from '../assets/Photo-Thumbnail.webp';
+import videoThumbnail from '../assets/Video-Thumbnail.webp';
+import writingThumbnail from '../assets/Writing-Thumbnail.webp';
 
 const Creative = () => {
     return (

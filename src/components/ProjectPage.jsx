@@ -14,20 +14,20 @@ function ImgCount({imgs}) {
     if (imgs.length < 3) {
         return (
             <div>
-                <img className='image-1' src={ imgs[0] }></img>
-                <img className='image-2' src={ imgs[1] }></img>
+                <img className='image-1' src={ imgs[0] } alt='Project Image'></img>
+                <img className='image-2' src={ imgs[1] } alt='Project Image'></img>
             </div>
         )
     }
     else {
         return (
             <div>
-            <img className='image-1' src={ imgs[0] }></img>
+            <img className='image-1' src={ imgs[0] } alt='Project Image'></img>
                 <div className='sideByside'>
-                    <img className='image-2' src={ imgs[1] }></img>
-                    <img className='image-3' src={ imgs[2] }></img>
+                    <img className='image-2' src={ imgs[1] } alt='Project Image'></img>
+                    <img className='image-3' src={ imgs[2] } alt='Project Image'></img>
                 </div>
-            <img className='image-4' src={ imgs[3] }></img>
+            <img className='image-4' src={ imgs[3] } alt='Project Image'></img>
             </div>
         )
     }

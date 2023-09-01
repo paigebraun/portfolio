@@ -10,20 +10,18 @@ import { creativeList } from '../App';
 import ScrollToTop from '../ScrollToTop';
 
 //import images
-import graphic1 from '../assets/GraphicDesign/Graphic-1.jpg';
-import graphic2 from '../assets/GraphicDesign/Graphic-2.png';
-import graphic3 from '../assets/GraphicDesign/Graphic-3.png';
-import graphic4 from '../assets/GraphicDesign/Graphic-4.png';
-import graphic5 from '../assets/GraphicDesign/Graphic-5.png';
-import graphic6 from '../assets/GraphicDesign/Graphic-6.png';
-import graphic7 from '../assets/GraphicDesign/Graphic-7.png';
-import graphic8 from '../assets/GraphicDesign/Graphic-8.png';
-import graphic9 from '../assets/GraphicDesign/Graphic-9.png';
-import graphic10 from '../assets/GraphicDesign/Graphic-10.jpg';
-import graphic11 from '../assets/GraphicDesign/Graphic-11.png';
-import GPDBTLogo from '../assets/GPDBT-Logo.png';
-
-import opening from '../assets/GPDBTOpening.pdf';
+import graphic1 from '../assets/GraphicDesign/Graphic-1.webp';
+import graphic2 from '../assets/GraphicDesign/Graphic-2.webp';
+import graphic3 from '../assets/GraphicDesign/Graphic-3.webp';
+import graphic4 from '../assets/GraphicDesign/Graphic-4.webp';
+import graphic5 from '../assets/GraphicDesign/Graphic-5.webp';
+import graphic6 from '../assets/GraphicDesign/Graphic-6.webp';
+import graphic7 from '../assets/GraphicDesign/Graphic-7.webp';
+import graphic8 from '../assets/GraphicDesign/Graphic-8.webp';
+import graphic9 from '../assets/GraphicDesign/Graphic-9.webp';
+import graphic10 from '../assets/GraphicDesign/Graphic-10.webp';
+import graphic11 from '../assets/GraphicDesign/Graphic-11.webp';
+import GPDBTLogo from '../assets/GPDBT-Logo.webp';
 
 function GetCreative(current) {
     //video
@@ -42,21 +40,21 @@ function GetCreative(current) {
         return (
             <div>
                 <ScrollToTop />
-                <img className='graphic' src={ graphic1 }></img>
-                <img className='graphic' src={ graphic2 }></img>
+                <img className='graphic' src={ graphic1 } alt='design'></img>
+                <img className='graphic' src={ graphic2 } alt='design'></img>
                 <div className='sideByside'>
-                    <img className='graphic' src={ graphic3 }></img>
-                    <img className='graphic' src={ graphic4 }></img>
+                    <img className='graphic' src={ graphic3 } alt='design'></img>
+                    <img className='graphic' src={ graphic4 } alt='design'></img>
                 </div>
-                <img className='graphic' src={ graphic5 }></img>
-                <img className='graphic' src={ graphic6 }></img>
-                <img className='graphic' src={ graphic7 }></img>
+                <img className='graphic' src={ graphic5 } alt='design'></img>
+                <img className='graphic' src={ graphic6 } alt='design'></img>
+                <img className='graphic' src={ graphic7 } alt='design'></img>
                 <div className='sideByside'>
-                    <img className='graphic' src={ graphic8 }></img>
-                    <img className='graphic' src={ graphic9 }></img>
+                    <img className='graphic' src={ graphic8 } alt='design'></img>
+                    <img className='graphic' src={ graphic9 } alt='design'></img>
                 </div>
-                <img className='graphic' src={ graphic10 }></img>
-                <img className='graphic' src={ graphic11 }></img>
+                <img className='graphic' src={ graphic10 } alt='design'></img>
+                <img className='graphic' src={ graphic11 } alt='design'></img>
             </div>
         )
     }

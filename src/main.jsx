@@ -5,7 +5,7 @@ import {App} from './App.jsx'
 import './styles/index.css';
 
 //import components
-import About from './About.jsx';
+import About from './components/About.jsx';
 import ProjectPage from './components/ProjectPage.jsx';
 import Creative from './components/Creative.jsx'
 import CreativePage from './components/CreativePage.jsx';

@@ -17,6 +17,10 @@
     font-size: 1.2rem;
 }
 
+.projectText p {
+    font-size: 1.2em;
+}
+
 .projectImg {
     width: 50%;
     cursor: pointer;
