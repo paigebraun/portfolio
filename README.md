@@ -3,14 +3,14 @@
 A personal portfolio to showcase my work.
 
 
-:arrow_right: [Live Preview](www.paigebraun.com)
+:arrow_right: [Live Preview](https://www.paigebraun.com/)
 
 
 ## Screenshots
 
-![App Screenshot](Portfolio-Thumbnail.png)
+![App Screenshot](./src/assets/Portfolio-Thumbnail.png)
 
 
 ## Tech Stack
 
-HTML, CSS, Javascript, React,js, Vite
+HTML, CSS, Javascript, React.js, Vite
