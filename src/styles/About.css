@@ -72,8 +72,8 @@
 
 @media only screen and (max-width: 810px) {
     .root-about {
-        padding-inline-end: 20px;
-        padding-inline-start: 20px;
+        padding-inline-end: 0px;
+        padding-inline-start: 0px;
     }
 
     .hero-about p,
