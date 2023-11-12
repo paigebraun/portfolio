@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Route, Routes} from 'react-router-dom';
 import './styles/App.css';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -22,26 +23,26 @@ import fafnir3 from './assets/Fafnir-3.webp';
 import fafnirThumbnail from './assets/Fafnir-Thumbnail.webp'
 
 //import components
-import NavBar from './components/NavBar'
-import Hero from './components/Hero'
-import {Projects} from './components/Projects'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import Home from './components/Home';
+import About from './components/About';
+import ProjectPage from './components/ProjectPage';
+import Creative from './components/Creative';
+import CreativePage from './components/CreativePage';
 
 //list of project objects
 const projectList = [
   { title: 'Cool Links', path: 'cool-links', img: coolLinksThumbnail, displayImg: [coolLinksThumbnail, coolLinks1, coolLinks2], preview: 'https://cool-links.netlify.app/', 
     code: 'https://github.com/paigebraun/cool-links', summary: 'A web application that allows users to save, search, and categorize cool links they find across the internet.',
     description: 'Seamlessly capture captivating links discovered across the the internet for easy access in the future. Elevate your digital curation prowess as you easily categorize these links into collections. Locate your saved links using intuitive keyword searches.', 
-    builtWith: 'HTML, CSS, Javascript, React.js, Vite, Web Storage API, Link Preview API', id: uuidv4()},
+    builtWith: 'HTML, CSS, JavaScript, React, Vite, Web Storage API, Link Preview API', id: uuidv4()},
   { title: 'Skeuomorphic Library', path: 'library', img: libraryThumbnail, displayImg:[libraryThumbnail, library1], preview: 'https://paigebraun.github.io/library/', 
     code: 'https://github.com/paigebraun/library', summary: 'A virtual library for storing your favorite books with a skeuomorphic design that uses animation to enhance the experience.', 
     description: 'A virtual library that mirrors the charm of its real-world counterpart. Simply add your favorite book, and unveil its cover image with a simple click. Keep track of which books have been read or delete titles from your library at any time. Explore the essence of a library reimagined, right at your fingertips.', 
-    builtWith: 'HTML, CSS, Javascript, Google Books API', id: uuidv4()},
+    builtWith: 'HTML, CSS, JavaScript, Google Books API', id: uuidv4()},
   { title: 'To Do List', path: 'todo-list', img: toDoThumbnail, displayImg: [toDoThumbnail, toDo1, toDo2, toDo3], preview: 'https://paigebraun.github.io/todo-list/', 
     code: 'https://github.com/paigebraun/todo-list', summary: 'A simple to do list application with several ways to view tasks and stay organized.', 
     description: 'A minimal, user-friendly to do list application that presents your daily tasks up front. Seamlessly transition to a comprehensive list view, add new tasks and delete old ones, or move tasks to different lists. Created to practice OOP and ES6 module syntax.', 
-    builtWith: 'HTML, CSS, Javascript, Webpack', id: uuidv4()},
+    builtWith: 'HTML, CSS, JavaScript, Webpack', id: uuidv4()},
   { title: 'Jazzberry Blue Maps', path: 'maps', img: mapsThumbnail, displayImg: [maps1, maps2, maps3], preview: '', 
     code: 'https://github.com/paigebraun/Maps', summary: 'A re-creation of maps designed by artist Jazzberry Blue. Each map is abstract, colorful, and unique.',
     description: 'A re-creation of maps designed by artist Jazzberry Blue with code. The program takes in shape layers and intricate coordinate data, transforms all intersecting streets into polygons, and randomly fills those polygons with a pre-defined selection of colors.',
@@ -49,7 +50,7 @@ const projectList = [
   { title: "Fafnir's Dragon", path: 'fafnirs-dragon', img: fafnirThumbnail, displayImg: [fafnirThumbnail, fafnir1, fafnir2, fafnir3], preview: 'https://paigebraun.github.io/fafnirs-dragon/', 
     code: ' https://github.com/paigebraun/fafnirs-dragon', summary: 'A 2D platform game created as part of a semester long class with two classmates.',
     description: 'A 2D platform game created as part of a semester long class with two classmates. The game implements two playing levels for users to choose from and has a high score ranking at the end of each play. Maneuver through intricately designed environments and beat the final boss to win the game.', 
-    builtWith: 'HTML, CSS, Javascript, Phaser 3, TileMaps', id: uuidv4()}
+    builtWith: 'HTML, CSS, JavaScript, Phaser 3, TileMaps', id: uuidv4()}
 ]
 
 //list of creative objects
@@ -81,17 +82,13 @@ function FadeInSection(props) {
 
 function App() {
   return (
-    <div className='wrapper-app'>
-      <div className='root-app'>
-      <div className='navHero'>
-        <NavBar />
-        <Hero FadeInSection={FadeInSection} />
-      </div>
-      <Projects projectList={projectList} FadeInSection={FadeInSection} />
-      <Contact FadeInSection={FadeInSection} />
-      <Footer />
-      </div>
-    </div>
+    <Routes>
+      <Route path = "/" element = {<Home />} />
+      <Route path = "/about" element= {<About />} />
+      <Route path = "/projects/:id" element={<ProjectPage />} />
+      <Route path = "/creative" element = {<Creative />} />
+      <Route path = "/creative/:id" element = {<CreativePage />} />
+    </Routes>
   )
 }
 

@@ -31,9 +31,10 @@ const About = () => {
             <div className='skillsGrid'>
                 <p>HTML</p>
                 <p>CSS</p>
-                <p>Javascript</p>
+                <p>JavaScript</p>
                 <p>React</p>
                 <p>Python</p>
+                <p>Tailwind</p>
                 <p>Vite</p>
                 <p>Webpack</p>
                 <p>npm</p>
