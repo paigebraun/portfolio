@@ -8,6 +8,7 @@ import NavBarBack from './NavBarBack'
 import Footer from './Footer';
 import { creativeList } from '../App';
 import ScrollToTop from '../ScrollToTop';
+import NotFound from './NotFound';
 
 //import images
 import graphic1 from '../assets/GraphicDesign/Graphic-1.webp';
@@ -93,6 +94,10 @@ const CreativePage = () => {
     let currentCreative = creativeList[index];
 
     return (
+        <div>
+        {currentCreative == undefined ? (
+            < NotFound />
+        ) : (
         <div className = 'root-creative-page'>
             <NavBarBack />
             <FadeInSection>
@@ -104,6 +109,9 @@ const CreativePage = () => {
             </FadeInSection>
             <Footer />   
         </div>
+        
+    )}
+    </div>
     )
 }
 

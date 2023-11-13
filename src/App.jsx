@@ -28,6 +28,7 @@ import About from './components/About';
 import ProjectPage from './components/ProjectPage';
 import Creative from './components/Creative';
 import CreativePage from './components/CreativePage';
+import NotFound from './components/NotFound';
 
 //list of project objects
 const projectList = [
@@ -83,6 +84,7 @@ function FadeInSection(props) {
 function App() {
   return (
     <Routes>
+      <Route path="*" element= {<NotFound />} />
       <Route path = "/" element = {<Home />} />
       <Route path = "/about" element= {<About />} />
       <Route path = "/projects/:id" element={<ProjectPage />} />

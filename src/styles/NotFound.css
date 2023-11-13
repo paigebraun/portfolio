@@ -1,0 +1,28 @@
+.notfound-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 85vh;
+}
+
+.notfound {
+    display: flex;
+    flex-direction: column;
+}
+
+.notfound > h1 {
+    font-size: 6em;
+    margin: 0;
+}
+
+.notfound > h4 {
+    font-size: 2em;
+    margin: 0;
+}
+
+@media only screen and (max-width: 810px) {
+    .notfound-container {
+       padding-inline-start: 20px;
+       padding-inline-end: 20px;
+    }
+}

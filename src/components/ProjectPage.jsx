@@ -8,6 +8,7 @@ import Footer from './Footer';
 import { projectList } from '../App';
 import { LivePreview } from './Projects';
 import ScrollToTop from '../ScrollToTop';
+import NotFound from './NotFound';
 
 function ImgCount({imgs}) {
     //display images based on how many images we have
@@ -40,6 +41,10 @@ const ProjectPage = () => {
     let currentProject = projectList[index];
 
     return (
+        <div>
+        {currentProject == undefined ? (
+            < NotFound />
+        ) : (
         <>
         <ScrollToTop />
         <div className='root-project-page'>
@@ -69,7 +74,9 @@ const ProjectPage = () => {
             <Footer />
         </div>
         </>
-    )
+        )}
+        </div>
+        )
 }
 
 export default ProjectPage
