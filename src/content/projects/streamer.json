@@ -1,0 +1,13 @@
+{
+    "name": "streamer",
+    "description": "A full-stack application designed to simplify your search for movies and TV shows across various streaming platforms. Streamer provides up-to-date information on where each movie or TV show is available for streaming, ensuring you never miss out on your next binge-worthy experience.\n\nCreate an account to save your favorite titles and organize them into a personalized watchlist for easy access. Dive deep into each title with detailed information such as synopsis, trailer, director, and cast members. The intuitive design makes it simple to navigate and explore a vast library of content.",
+    "tech": "React, JavaScript, Tailwind, Express, Node.js, MongoDB, Mongoose, Vite, Passport, Bcrypt.js, React-Router-DOM, React-Toastify, Framer Motion, TMDB API",
+    "livePreview": "https://streamer-tqxz.onrender.com/",
+    "github": "https://github.com/paigebraun/streamer",
+    "images": [
+        "./streamer-1.png",
+        "./streamer-2.png",
+        "./streamer-3.png",
+        "./streamer-4.png"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "name": "jazzberry blue maps",
+    "description": "A recreation of maps designed by artist Jazzberry Blue with code. The program takes in shape layers and intricate coordinate data, transforms all intersecting streets into polygons, and randomly fills those polygons with a pre-defined selection of colors.",
+    "tech": "Python, Matplotlib, GeoPandas, Shapely, NumPy",
+    "github": "https://github.com/paigebraun/Maps",
+    "images": [
+        "./jazzberry-blue-maps-1.webp",
+        "./jazzberry-blue-maps-2.webp",
+        "./jazzberry-blue-maps-3.webp"
+    ]
+}

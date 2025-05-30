@@ -1,0 +1,13 @@
+{
+    "name": "cool links",
+    "description": "A simple tool for saving captivating links discovered across the the internet for easy access in the future. Categorize these links into collections and locate your saved links using intuitive keyword searches.",
+    "tech": "Typescript, React, Shadcn, Tailwind, Vite, Link Preview API",
+    "livePreview": "https://cool-links.netlify.app/",
+    "github": "https://github.com/paigebraun/cool-links-v2",
+    "images": [
+        "./cool-links-1.png",
+        "./cool-links-2.png",
+        "./cool-links-3.png",
+        "./cool-links-4.png"
+    ]
+}

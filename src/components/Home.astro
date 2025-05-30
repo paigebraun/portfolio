@@ -1,0 +1,14 @@
+---
+import { Image } from "astro:assets";
+import coast from "../assets/coast.jpg";
+import Footer from "../components/Footer.astro";
+---
+
+<div class="max-w-3xl flex-1">
+    <Image
+        src={coast}
+        alt="coastline"
+        class="transition-transform duration-500 transform scale-100"
+    />
+    <Footer />
+</div>

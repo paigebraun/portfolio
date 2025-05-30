@@ -1,0 +1,51 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+    <div class="max-w-3xl flex-1 text-xs">
+        <p class="mb-2">
+            I'm a <span class="font-bold">front end developer</span>{" "}
+            with a background in design and a passion for creative problem solving.
+        </p>
+        <p class="mb-2">
+            I've always been fascinated by how things work. This curiosity led
+            me to study film and computer science at the University of Texas at
+            Austin.
+        </p>
+        <p class="mb-2">
+            I currently work at Visa on their design system team. I love using
+            technology to recognize patterns and improve efficiency.
+        </p>
+        <h3 class="font-bold mb-4 mt-6">Skills</h3>
+        <div class="grid grid-cols-2 grid-rows-7 max-w-56">
+            <p>TypeScript</p>
+            <p>React</p>
+            <p>JavaScript</p>
+            <p>Python</p>
+            <p>Express</p>
+            <p>MongoDB</p>
+            <p>Node.js</p>
+            <p>PostgreSQL</p>
+            <p>HTML</p>
+            <p>CSS</p>
+            <p>Tailwind</p>
+            <p>Vite</p>
+            <p>Webpack</p>
+            <p>Premiere</p>
+            <p>Photoshop</p>
+            <p>Illustrator</p>
+            <p>After Effects</p>
+            <p>Figma</p>
+        </div>
+        <h3 class="font-bold mb-4 mt-6">Education</h3>
+        <p class="mb-2">University of Texas at Austin</p>
+        <p>Bachelor of Science in Radio-Television-Film</p>
+        <p>Elements of Computing Certificate</p>
+        <Contact />
+        <Footer />
+    </div>
+</Layout>

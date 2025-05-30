@@ -1,0 +1,13 @@
+{
+    "name": "wnba swish",
+    "description": "WNBA Swish is a web application that provides up-to-date information on WNBA games, including team stats, player stats, schedules, scores, and standings. The app aims to offer a comprehensive view of the current 2024 WNBA season, making it easy for fans to stay informed about their favorite teams and players.\n\nMy personal favorite team is the Las Vegas Aces. Let's get a three-peat!",
+    "tech": "React, TypeScript, JavaScript, Tailwind, Express, Node.js, PostgreSQL, Vite, Swiper.js, D3.js, React-Router-DOM, Framer Motion",
+    "livePreview": "https://wnba-swish.vercel.app/",
+    "github": "https://github.com/paigebraun/wnba-swish",
+    "images": [
+        "./wnba-swish-1.png",
+        "./wnba-swish-2.png",
+        "./wnba-swish-3.png",
+        "./wnba-swish-4.png"
+    ]
+}

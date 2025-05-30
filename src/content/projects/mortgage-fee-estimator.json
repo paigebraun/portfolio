@@ -1,0 +1,12 @@
+{
+    "name": "mortgage fee estimator",
+    "description": "An application built for 1st Alliance Mortgage to allow loan officers to quickly and easily create and share fee estimates for potential borrowers. Loan officers at 1st Alliance Mortgage wanted something they could use on the go which is why I developed the site first with a mobile layout in mind. The app uses the information from the form to create a custom fee estimate pdf that can be downloaded or shared directly with clients.",
+    "tech": "React, TypeScript, Tailwind, Vite, PDF-LIB, React-Hook-Form, React-Select, Framer Motion",
+    "livePreview": "https://paigebraun.github.io/1stam-fee-estimate/",
+    "github": "https://github.com/paigebraun/1stam-fee-estimate",
+    "images": [
+        "./mortgage-fee-estimator-1.png",
+        "./mortgage-fee-estimator-2.png",
+        "./mortgage-fee-estimator-3.png"
+    ]
+}

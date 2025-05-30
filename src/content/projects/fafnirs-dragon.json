@@ -1,0 +1,13 @@
+{
+    "name": "fafnir's dragon",
+    "description": "A 2D platform game created as part of a semester long class with two classmates. The game implements two playing levels for users to choose from and has a high score ranking at the end of each play. Maneuver through intricately designed environments and beat the final boss to win the game.",
+    "tech": "JavaScript, HTML, CSS, Phaser 3, TileMaps",
+    "livePreview": "https://paigebraun.github.io/fafnirs-dragon/",
+    "github": "https://github.com/paigebraun/fafnirs-dragon",
+    "images": [
+        "./fafnirs-dragon-1.webp",
+        "./fafnirs-dragon-2.webp",
+        "./fafnirs-dragon-3.webp",
+        "./fafnirs-dragon-4.webp"
+    ]
+}

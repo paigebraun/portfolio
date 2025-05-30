@@ -1,0 +1,44 @@
+---
+import { Image } from "astro:assets";
+import { getCollection } from "astro:content";
+const projects = await getCollection("projects");
+
+import asterisk from "../assets/asterisk.svg";
+
+function slugify(name) {
+    return name.toLowerCase().replace(/\s+/g, "-");
+}
+---
+
+<nav class="text-xs mb-4">
+    <ul
+        class="flex justify-between md:items-start items-center md:flex-col md:gap-1 transition-all md:fixed">
+        <li class="flex gap-1 md:mb-4">
+            <Image width={12} src={asterisk} alt="asterisk svg" />
+            <a href="/" class="text-lg">Paige Braun</a>
+        </li>
+        {
+            projects.map((project) => {
+                const slug = slugify(project.data.name);
+                return (
+                    <li>
+                        <a class="hover:text-lime-300" href={`/${slug}`}>
+                            {project.data.name}
+                        </a>
+                    </li>
+                );
+            })
+        }
+        <li>
+            <div class="md:h-8"></div>
+        </li>
+        <li>
+            <a href="/about" class="hidden md:block hover:text-gray-300"
+                >about</a
+            >
+        </li>
+        <li>
+            <div class="md:h-8"></div>
+        </li>
+    </ul>
+</nav>

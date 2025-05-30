@@ -1,0 +1,142 @@
+---
+import "../styles/global.css";
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import Contact from "../components/Contact.astro";
+import Footer from "../components/Footer.astro";
+import { Icon } from "@astrojs/starlight/components";
+import { Image } from "astro:assets";
+
+// Helper to import all images in the projects folder
+const imageImports = import.meta.glob(
+    "../assets/projects/*.{png,jpg,jpeg,webp}",
+    { eager: true, import: "default" }
+);
+
+export async function getStaticPaths() {
+    const projects = await getCollection("projects");
+    return projects.map((project) => {
+        return {
+            params: {
+                slug: project.data.name.toLowerCase().replace(/\s+/g, "-"),
+            },
+            props: {
+                name: project.data.name,
+                description: project.data.description,
+                tech: project.data.tech,
+                livePreview: project.data.livePreview,
+                github: project.data.github,
+                images: project.data.images || [],
+            },
+        };
+    });
+}
+
+const { name, description, tech, livePreview, github, images } = Astro.props;
+
+// Map JSON image paths to imported images
+const importedImages = images
+    .map((imgPath) => {
+        // Remove leading './' if present
+        const cleanPath = imgPath.replace(/^\.\//, "");
+        // Build the relative path for import.meta.glob
+        const assetPath = `../assets/projects/${cleanPath}`;
+        return imageImports[assetPath];
+    })
+    .filter(Boolean);
+
+function toTitleCase(str) {
+    return str.replace(/\w\S*/g, function (txt) {
+        return txt.charAt(0).toUpperCase() + txt.slice(1).toLowerCase();
+    });
+}
+
+function formatProjectName(name) {
+    if (name.toLowerCase() === "wnba swish") {
+        return "WNBA Swish";
+    }
+    return toTitleCase(name);
+}
+---
+
+<Layout>
+    <div class="max-w-3xl flex-1 text-xs">
+        <h3 class="font-bold mb-4">
+            {formatProjectName(name)}
+        </h3>
+        <p class="mb-4">
+            {
+                description.split("\n").map((line) => (
+                    <>
+                        {line}
+                        <br />
+                    </>
+                ))
+            }
+        </p>
+        <p class="mb-4">
+            <span class="font-bold">Tech: </span>
+            {tech}
+        </p>
+        {
+            livePreview && (
+                <div class="flex gap-4">
+                    <a
+                        class="font-bold flex items-center mb-2 hover:underline"
+                        href={livePreview}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Live Preview{" "}
+                        <Icon name="external" size="1.2em" class="ml-1" />
+                    </a>
+                    <a
+                        class="font-bold flex items-center mb-2 hover:underline"
+                        href={github}
+                        target="_blank"
+                        rel="noopener noreferrer">
+                        Code <Icon name="external" size="1.2em" class="ml-1" />
+                    </a>
+                </div>
+            )
+        }
+        {
+            !livePreview && (
+                <a
+                    class="font-bold flex items-center mb-2 hover:underline"
+                    href={github}
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Code <Icon name="external" size="1.2em" class="ml-1" />
+                </a>
+            )
+        }
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+            {
+                importedImages.map((image, idx) => (
+                    <Image
+                        src={image as ImageMetadata}
+                        alt={`${name} screenshot ${idx + 1}`}
+                        class="astro-fade opacity-0 transition-opacity duration-700"
+                        style={`transition-delay: ${idx * 150}ms`}
+                    />
+                ))
+            }
+        </div>
+        <Contact />
+        <Footer />
+    </div>
+</Layout>
+
+<script is:inline>
+    if (typeof window !== "undefined") {
+        document.querySelectorAll("img.astro-fade").forEach((img) => {
+            if (img.complete) {
+                img.classList.add("opacity-100");
+            } else {
+                img.addEventListener("load", () => {
+                    img.classList.add("opacity-100");
+                });
+            }
+        });
+    }
+</script>
