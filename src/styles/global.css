@@ -1,1 +1,212 @@
 @import "tailwindcss";
+
+::selection {
+  background-color: oklch(89.7% 0.196 126.665);
+}
+
+:root {
+    --padding: 20px;
+    --content-width: calc(100vw - 20 * 2);
+    --gap: 10px;
+    --light-grey: #D4D4D4;
+    --black: #101010;
+}
+
+/*Range */
+
+.range__container {
+    height: 90px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.range {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, var(--black) 0%, var(--black) 0%, 
+                                          var(--light-grey) 0%, var(--light-grey) 100%);
+    border: none;
+    border-left: 1px solid #fff;
+    outline: none;
+    cursor: pointer;
+
+}
+
+.range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: var(--black);
+}
+
+/* Images */
+
+.image__container {
+    overflow: hidden;
+    visibility: hidden;
+    background-color: #D4D4D4;
+
+    transition: width 0.2s linear, opacity 0.2s ease-in-out;
+}
+
+.image__container:hover {
+    opacity: 0.9;
+}
+
+.visible {
+    visibility: visible;
+}
+
+.landscape {
+    min-width: 100px;
+    width: 100px;
+}
+
+.portrait {
+    min-width: 75px;
+    width: 75px;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    cursor: pointer;
+}
+
+/* Popup */
+
+.popup {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+    z-index: 100;
+
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s ease-in;
+}
+
+.popup__header {
+    width: 100%;
+    padding: 15px var(--padding);
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: space-between;
+}
+
+.popup--open {
+    display: flex;
+}
+
+.popup__image--container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup--portrait {
+    max-width: 480px;
+    width: 100%;
+}
+
+.popup--landscape {
+    max-width: 960px;
+    width: 100%;
+}
+
+.popup__image {
+    display: block;
+}
+
+.button__close-popup {
+    background: transparent;
+    border: none;
+    outline: none;
+    color: var(--light-grey);
+    font-size: 16px;
+
+    cursor: pointer;
+    transition: color 0.1s ease-in;
+}
+
+.button__close-popup:hover {
+    color: var(--black);
+}
+
+.popup__image-count {
+    width: 76px;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.popup__image-count span {
+    font-size: 16px;
+    color: var(--black);
+}
+
+.popup__current-count {
+    position: absolute;
+    left: 0;
+}
+
+.popup__total-count {
+    margin-left: 5px;
+}
+
+.popup__arrow {
+    position: absolute;
+    width: 50px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffff;
+    z-index: 100;
+    opacity: 0;
+}
+
+.scroll--canceled {
+    overflow: hidden;
+}
+
+/**/
+/**/
+/**/
+
+@media all and (max-width: 760px) {
+    .range::-webkit-slider-thumb {
+        height: 20px;
+        width: 20px;
+    }
+}
+
+@media all and (max-width: 455px) {
+    :root {
+        --padding: 15px;
+        --gap: 15px;
+    }
+}
+
+@media all and (max-width: 379px) {
+    .range {
+        width: unset;
+    }
+}

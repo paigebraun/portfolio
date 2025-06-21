@@ -10,6 +10,7 @@ import { ClientRouter } from "astro:transitions";
         <meta name="viewport" content="width=device-width" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <title>Portfolio</title>
+        <ClientRouter />
     </head>
     <body>
         <div class="flex md:flex-row flex-col md:gap-64 md:p-20 p-10">
@@ -19,4 +20,17 @@ import { ClientRouter } from "astro:transitions";
     </body>
 </html>
 
-<!-- <ClientRouter /> -->
+<script>
+    if ("startViewTransition" in document) {
+        document.addEventListener("click", (e) => {
+            const target = e.target;
+            const a = target instanceof Element ? target.closest("a") : null;
+            if (a && a.href && a.getAttribute("href")?.includes("/image/")) {
+                e.preventDefault();
+                document.startViewTransition(() => {
+                    window.location.href = a.href;
+                });
+            }
+        });
+    }
+</script>

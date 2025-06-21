@@ -6,6 +6,7 @@ import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
 import { Icon } from "@astrojs/starlight/components";
 import { Image } from "astro:assets";
+import Popup from "../components/Popup.astro";
 
 // Helper to import all images in the projects folder
 const imageImports = import.meta.glob(
@@ -116,19 +117,22 @@ function formatProjectName(name) {
                     <Image
                         src={image as ImageMetadata}
                         alt={`${name} screenshot ${idx + 1}`}
-                        class="astro-fade opacity-0 transition-opacity duration-700"
+                        class="astro-fade opacity-0 transition-opacity duration-700 cursor-pointer"
                         style={`transition-delay: ${idx * 150}ms`}
+                        data-popup-idx={idx}
                     />
                 ))
             }
         </div>
+        <Popup />
         <Contact />
         <Footer />
     </div>
 </Layout>
 
 <script is:inline>
-    if (typeof window !== "undefined") {
+    document.addEventListener("astro:page-load", () => {
+        // Fade-in effect
         document.querySelectorAll("img.astro-fade").forEach((img) => {
             if (img.complete) {
                 img.classList.add("opacity-100");
@@ -138,5 +142,5 @@ function formatProjectName(name) {
                 });
             }
         });
-    }
+    });
 </script>

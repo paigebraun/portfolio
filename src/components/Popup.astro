@@ -1,0 +1,84 @@
+---
+import { Icon } from "@astrojs/starlight/components";
+---
+
+<div
+    id="popup"
+    class="hidden fixed inset-0 bg-white z-[1000] flex items-center justify-center">
+    <button
+        id="popup-close"
+        class="absolute top-4 right-4 text-gray-400 hover:text-gray-200 p-2 rounded-full hover:cursor-pointer transition z-10"
+        aria-label="Close">
+        <Icon name="close" size="1.5rem" />
+    </button>
+    <button
+        id="popup-prev"
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
+        aria-label="Previous">
+        <Icon name="left-caret" size="2.5rem" />
+    </button>
+    <img
+        id="popup-img"
+        src=""
+        alt="Popup"
+        class="max-w-[90vw] max-h-[90vh] block mx-auto shadow-lg"
+    />
+    <button
+        id="popup-next"
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
+        aria-label="Next">
+        <Icon name="right-caret" size="2.5rem" class="stroke-[.1]" />
+    </button>
+</div>
+
+<script is:inline>
+    document.addEventListener("astro:page-load", () => {
+        // Popup logic
+        const popup = document.getElementById("popup");
+        const popupImg = document.getElementById("popup-img");
+        const closeBtn = document.getElementById("popup-close");
+        const prevBtn = document.getElementById("popup-prev");
+        const nextBtn = document.getElementById("popup-next");
+        const images = Array.from(document.querySelectorAll("img.astro-fade"));
+        let currentIdx = 0;
+
+        function showPopup(idx) {
+            currentIdx = idx;
+            popupImg.src = images[currentIdx].src;
+            popup.classList.remove("hidden");
+            popup.classList.add("flex");
+        }
+
+        images.forEach((img, idx) => {
+            img.addEventListener("click", () => {
+                showPopup(idx);
+            });
+        });
+
+        closeBtn.addEventListener("click", () => {
+            popup.classList.remove("flex");
+            popup.classList.add("hidden");
+            popupImg.src = "";
+        });
+
+        prevBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIdx = (currentIdx - 1 + images.length) % images.length;
+            popupImg.src = images[currentIdx].src;
+        });
+
+        nextBtn.addEventListener("click", (e) => {
+            e.stopPropagation();
+            currentIdx = (currentIdx + 1) % images.length;
+            popupImg.src = images[currentIdx].src;
+        });
+
+        popup.addEventListener("click", (e) => {
+            if (e.target === popup) {
+                popup.classList.remove("flex");
+                popup.classList.add("hidden");
+                popupImg.src = "";
+            }
+        });
+    });
+</script>
