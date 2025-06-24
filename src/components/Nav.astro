@@ -1,8 +1,9 @@
 ---
 import { Image } from "astro:assets";
 import { getCollection } from "astro:content";
-const projects = await getCollection("projects");
-
+const projects = (await getCollection("projects")).sort(
+    (a, b) => (a.data.order ?? 999) - (b.data.order ?? 999)
+);
 import asterisk from "../assets/asterisk.svg";
 
 function slugify(name) {
@@ -22,7 +23,9 @@ function slugify(name) {
                 const slug = slugify(project.data.name);
                 return (
                     <li>
-                        <a class="hover:text-lime-300" href={`/${slug}`}>
+                        <a
+                            class="hidden md:block hover:text-lime-300"
+                            href={`/${slug}`}>
                             {project.data.name}
                         </a>
                     </li>
@@ -45,5 +48,104 @@ function slugify(name) {
                 >photo</a
             >
         </li>
+        {/* Dropdown menu for mobile view */}
+        <div class="md:hidden">
+            <button
+                id="menu-toggle-btn"
+                type="button"
+                class="focus:outline-none text-neutral-950 text-lg cursor-pointer">
+                <span id="menu-icon">
+                    <svg
+                        width="1em"
+                        height="1em"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                        ><path
+                            d="M4 6h16M4 12h16M4 18h16"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"></path></svg
+                    >
+                </span>
+            </button>
+        </div>
     </ul>
+    <ul
+        id="mobile-menu"
+        class="md:hidden flex flex-col gap-2 mb-4 mt-4"
+        style="display:none;">
+        {
+            projects.map((project) => {
+                const slug = slugify(project.data.name);
+                return (
+                    <li>
+                        <a href={`/${slug}`} class="hover:text-lime-300">
+                            {project.data.name}
+                        </a>
+                    </li>
+                );
+            })
+        }
+        <li><div class="h-4"></div></li>
+        <li>
+            <a href="/about" class="hover:text-gray-300">about</a>
+        </li>
+        <li><div class="h-4"></div></li>
+        <li>
+            <a href="/photo" class="hover:text-gray-300">photo</a>
+        </li>
+    </ul>
+    <script type="text/javascript">
+        function setupNavMenu() {
+            // Only run if nav exists
+            const nav = document.querySelector("nav");
+            if (!nav) return;
+
+            const menu = document.getElementById("mobile-menu");
+            const iconSpan = document.getElementById("menu-icon");
+            const menuBtn = document.getElementById("menu-toggle-btn");
+            const mobileLinks = menu ? menu.querySelectorAll("a") : [];
+
+            if (!menu || !iconSpan || !menuBtn) return;
+
+            let isMenuOpen = false;
+
+            // Remove previous listeners by cloning the node
+            const newMenuBtn = menuBtn.cloneNode(true);
+            menuBtn.parentNode.replaceChild(newMenuBtn, menuBtn);
+
+            function toggleMenu() {
+                isMenuOpen = !isMenuOpen;
+                menu.style.display = isMenuOpen ? "block" : "none";
+                iconSpan.innerHTML = isMenuOpen
+                    ? `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 18L18 6M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`
+                    : `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+            }
+
+            newMenuBtn.addEventListener("click", toggleMenu);
+
+            mobileLinks.forEach((link) => {
+                const newLink = link.cloneNode(true);
+                link.parentNode.replaceChild(newLink, link);
+                newLink.addEventListener("click", () => {
+                    if (isMenuOpen) toggleMenu();
+                });
+            });
+
+            function handleResize() {
+                if (window.innerWidth >= 768) {
+                    menu.style.display = "none";
+                    isMenuOpen = false;
+                    iconSpan.innerHTML = `<svg width="1em" height="1em" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 6h16M4 12h16M4 18h16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+                }
+            }
+            window.removeEventListener("resize", handleResize);
+            window.addEventListener("resize", handleResize);
+        }
+
+        document.addEventListener("astro:after-swap", setupNavMenu);
+        document.addEventListener("DOMContentLoaded", setupNavMenu);
+    </script>
 </nav>

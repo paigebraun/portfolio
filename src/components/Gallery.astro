@@ -27,90 +27,17 @@ import Popup from "./Popup.astro";
         const imageSection = document.querySelector(".image__section");
         const range = document.querySelector(".range");
 
+        if (!imageSection || !range) return;
+
         let currentPageWidth = imageSection.clientWidth;
         let currentValue = window.innerWidth <= 800 ? 0 : 7;
 
         updateProgressBar(currentValue);
 
-        // Only use 400 for small screens, 1920 for others
         if (window.innerWidth <= 800) createImages(400, 1920);
         else createImages(400, 1920);
 
-        let imageElements = [];
-        let imageUrls = [];
-        let images = [];
-
-        // Popup elements from Popup.astro
-        const popup = document.getElementById("popup");
-        const popupImg = document.getElementById("popup-img");
-        const closeBtn = document.getElementById("popup-close");
-        const prevBtn = document.getElementById("popup-prev");
-        const nextBtn = document.getElementById("popup-next");
-
-        setTimeout(() => {
-            const images = Array.from(document.querySelectorAll(".image"));
-            let currentIdx = 0;
-
-            function showPopup(idx) {
-                currentIdx = idx;
-                popupImg.src = images[currentIdx].src.replace(
-                    /images-\d+\//,
-                    "images-1920/"
-                );
-                popup.classList.remove("hidden");
-                popup.classList.add("flex");
-            }
-
-            images.forEach((img, idx) => {
-                img.addEventListener("click", () => {
-                    showPopup(idx);
-                });
-            });
-
-            closeBtn.addEventListener("click", () => {
-                popup.classList.remove("flex");
-                popup.classList.add("hidden");
-                popupImg.src = "";
-            });
-
-            prevBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                currentIdx = (currentIdx - 1 + images.length) % images.length;
-                popupImg.src = images[currentIdx].src.replace(
-                    /images-\d+\//,
-                    "images-1920/"
-                );
-            });
-
-            nextBtn.addEventListener("click", (e) => {
-                e.stopPropagation();
-                currentIdx = (currentIdx + 1) % images.length;
-                popupImg.src = images[currentIdx].src.replace(
-                    /images-\d+\//,
-                    "images-1920/"
-                );
-            });
-
-            popup.addEventListener("click", (e) => {
-                if (e.target === popup) {
-                    popup.classList.remove("flex");
-                    popup.classList.add("hidden");
-                    popupImg.src = "";
-                }
-            });
-
-            window.addEventListener("keydown", (e) => {
-                if (popup.classList.contains("flex")) {
-                    if (e.key === "Escape") closeBtn.click();
-                    if (e.key === "ArrowLeft") prevBtn.click();
-                    if (e.key === "ArrowRight") nextBtn.click();
-                }
-            });
-        }, 100);
-
         function createImages(size, maxSize) {
-            let count = 0;
-
             for (let i = 0; i < totalImages; i++) {
                 const imageContainer = document.createElement("div");
                 imageContainer.classList.add("image__container");
@@ -125,37 +52,35 @@ import Popup from "./Popup.astro";
                 imageSection.append(imageContainer);
 
                 image.onload = () => {
-                    count++;
                     addImageOrientation(image);
                     loadBigImages(image, index, maxSize);
 
-                    if (count === totalImages) {
-                        imageElements = Array.from(
+                    // Add click handler for popup
+                    image.addEventListener("click", () => {
+                        // Gather all image srcs (full size)
+                        const allImages = Array.from(
                             document.querySelectorAll(".image")
+                        ).map((img) =>
+                            img.src.replace(/images-\d+\//, "images-1920/")
                         );
-                        imageUrls = imageElements.map(
-                            (img) => img.src.split("/").reverse()[0]
+                        const idx = allImages.indexOf(
+                            image.src.replace(/images-\d+\//, "images-1920/")
                         );
-                        images = Array.from(
-                            document.querySelectorAll(".image__container")
+                        window.dispatchEvent(
+                            new CustomEvent("open-popup", {
+                                detail: { images: allImages, idx },
+                            })
                         );
-
-                        images.forEach((img) =>
-                            img.addEventListener("click", openPopup)
-                        );
-                    }
+                    });
                 };
             }
         }
 
         function loadBigImages(image, index, maxSize) {
-            let interval = setInterval(() => {
-                setTimeout(() => {
-                    image.src = `./assets/images-${maxSize}/${index}.jpg`;
-                    image.loading = "lazy";
-                }, 2000);
-                clearInterval(interval);
-            }, 500);
+            setTimeout(() => {
+                image.src = `./assets/images-${maxSize}/${index}.jpg`;
+                image.loading = "lazy";
+            }, 2000);
         }
 
         function addImageOrientation(image) {
@@ -186,12 +111,13 @@ import Popup from "./Popup.astro";
 
         function updateImageWidth() {
             const t = Math.pow(currentValue / 100, 1.5);
-
+            const images = Array.from(
+                document.querySelectorAll(".image__container")
+            );
             images.forEach((img) => {
                 if (currentValue === 100) {
                     img.style.width = "100%";
                 } else {
-                    // Use the same scaling for both orientations for consistency
                     const target = minWidth + (currentPageWidth - minWidth) * t;
                     img.style.width = Math.min(target, currentPageWidth) + "px";
                 }
@@ -201,51 +127,6 @@ import Popup from "./Popup.astro";
         function updateProgressBar(value) {
             range.value = value;
             range.style.background = `linear-gradient(to right, var(--black) ${value}%, var(--black) ${value}%, var(--light-grey) 0%, var(--light-grey) 100%)`;
-        }
-
-        function openPopup(e) {
-            const src = e.target.src.split("/").reverse()[0];
-            currentIndex = imageUrls.findIndex((url) => url === src);
-
-            showImage(currentIndex);
-
-            popup.classList.add("popup--open");
-            document.body.classList.add("scroll--canceled");
-            setTimeout(() => (popup.style.opacity = 1), 100);
-            isPopupOpen = true;
-            showArrow();
-        }
-
-        function showImage(index) {
-            const file = imageUrls[index];
-            const img = imageElements.find((i) => i.src.includes(file));
-            let container;
-            if (img) {
-                container = img.closest(".image__container");
-            } else {
-                container = document.createElement("div");
-                container.dataset.orientation = "portrait";
-            }
-
-            popupImg.src = `./assets/images-1920/${file}`;
-            removeImageOrientation();
-            if (container.dataset.orientation === "landscape") {
-                popupImg.classList.add("popup--landscape");
-            } else {
-                popupImg.classList.add("popup--portrait");
-            }
-            updateCount(index);
-        }
-
-        function updateCount(idx) {
-            imageCount.innerHTML = String(idx + 1).padStart(3, "0");
-        }
-
-        function showArrow() {
-            if (window.innerWidth < 1024) return;
-            popupArrow.style.left = mouseCoords.x + 20 + "px";
-            popupArrow.style.top = mouseCoords.y + "px";
-            popupArrow.style.opacity = 1;
         }
 
         range.addEventListener("input", scaleImages);

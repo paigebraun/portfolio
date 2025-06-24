@@ -1,5 +1,4 @@
 ---
-import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
@@ -8,7 +7,7 @@ import Footer from "../components/Footer.astro";
 <Layout>
     <div class="max-w-3xl flex-1 text-xs">
         <p class="mb-2">
-            I'm a <span class="font-bold">front end developer</span>{" "}
+            I'm a <span class="font-bold">front-end developer</span>{" "}
             with a background in design and a passion for creative problem solving.
         </p>
         <p class="mb-2">
@@ -17,8 +16,31 @@ import Footer from "../components/Footer.astro";
             Austin.
         </p>
         <p class="mb-2">
-            I currently work at Visa on their design system team. I love using
-            technology to recognize patterns and improve efficiency.
+            I currently work on the <a
+                class="font-bold hover:underline inline-flex items-center gap-[2px]"
+                href="https://design.visa.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >design system<span
+                    style="display:inline-block;vertical-align:middle;">
+                    <svg
+                        width="1.1em"
+                        height="1.1em"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path
+                            d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"
+                        ></path>
+                        <polyline points="15 3 21 3 21 9"></polyline>
+                        <line x1="10" y1="14" x2="21" y2="3"></line>
+                    </svg>
+                </span></a
+            > team at Visa. I love using technology to recognize patterns and improve
+            efficiency.
         </p>
         <h3 class="font-bold mb-4 mt-6">Skills</h3>
         <div class="grid grid-cols-2 grid-rows-7 max-w-56">

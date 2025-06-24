@@ -1,7 +1,3 @@
----
-import { Icon } from "@astrojs/starlight/components";
----
-
 <div
     id="popup"
     class="hidden fixed inset-0 bg-white z-[1000] flex items-center justify-center">
@@ -9,13 +5,33 @@ import { Icon } from "@astrojs/starlight/components";
         id="popup-close"
         class="absolute top-4 right-4 text-gray-400 hover:text-gray-200 p-2 rounded-full hover:cursor-pointer transition z-10"
         aria-label="Close">
-        <Icon name="close" size="1.5rem" />
+        <svg
+            width="1.5rem"
+            height="1.5rem"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
     </button>
     <button
         id="popup-prev"
-        class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
+        class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
         aria-label="Previous">
-        <Icon name="left-caret" size="2.5rem" />
+        <svg
+            width="2rem"
+            height="2rem"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M15 18l-6-6 6-6"></path>
+        </svg>
     </button>
     <img
         id="popup-img"
@@ -25,60 +41,20 @@ import { Icon } from "@astrojs/starlight/components";
     />
     <button
         id="popup-next"
-        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
+        class="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-200 p-1 hover:cursor-pointer transition z-10"
         aria-label="Next">
-        <Icon name="right-caret" size="2.5rem" class="stroke-[.1]" />
+        <svg
+            width="2rem"
+            height="2rem"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="M9 6l6 6-6 6"></path>
+        </svg>
     </button>
 </div>
 
-<script is:inline>
-    document.addEventListener("astro:page-load", () => {
-        // Popup logic
-        const popup = document.getElementById("popup");
-        const popupImg = document.getElementById("popup-img");
-        const closeBtn = document.getElementById("popup-close");
-        const prevBtn = document.getElementById("popup-prev");
-        const nextBtn = document.getElementById("popup-next");
-        const images = Array.from(document.querySelectorAll("img.astro-fade"));
-        let currentIdx = 0;
-
-        function showPopup(idx) {
-            currentIdx = idx;
-            popupImg.src = images[currentIdx].src;
-            popup.classList.remove("hidden");
-            popup.classList.add("flex");
-        }
-
-        images.forEach((img, idx) => {
-            img.addEventListener("click", () => {
-                showPopup(idx);
-            });
-        });
-
-        closeBtn.addEventListener("click", () => {
-            popup.classList.remove("flex");
-            popup.classList.add("hidden");
-            popupImg.src = "";
-        });
-
-        prevBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            currentIdx = (currentIdx - 1 + images.length) % images.length;
-            popupImg.src = images[currentIdx].src;
-        });
-
-        nextBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            currentIdx = (currentIdx + 1) % images.length;
-            popupImg.src = images[currentIdx].src;
-        });
-
-        popup.addEventListener("click", (e) => {
-            if (e.target === popup) {
-                popup.classList.remove("flex");
-                popup.classList.add("hidden");
-                popupImg.src = "";
-            }
-        });
-    });
-</script>
+<script type="module" src="/src/scripts/popup.js"></script>

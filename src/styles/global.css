@@ -55,7 +55,7 @@
 }
 
 .image__container:hover {
-    opacity: 0.9;
+    opacity: 0.8;
 }
 
 .visible {
@@ -63,13 +63,13 @@
 }
 
 .landscape {
-    min-width: 100px;
+    min-width: 75px;
     width: 100px;
 }
 
 .portrait {
     min-width: 75px;
-    width: 75px;
+    width: 100px;
 }
 
 .image {

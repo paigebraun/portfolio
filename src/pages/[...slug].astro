@@ -1,10 +1,8 @@
 ---
-import "../styles/global.css";
 import { getCollection } from "astro:content";
 import Layout from "../layouts/Layout.astro";
 import Contact from "../components/Contact.astro";
 import Footer from "../components/Footer.astro";
-import { Icon } from "@astrojs/starlight/components";
 import { Image } from "astro:assets";
 import Popup from "../components/Popup.astro";
 
@@ -88,14 +86,47 @@ function formatProjectName(name) {
                         target="_blank"
                         rel="noopener noreferrer">
                         Live Preview{" "}
-                        <Icon name="external" size="1.2em" class="ml-1" />
+                        <span
+                            class="ml-1"
+                            style="display:inline-block;vertical-align:middle;">
+                            <svg
+                                width="1.1em"
+                                height="1.1em"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </span>
                     </a>
                     <a
                         class="font-bold flex items-center mb-2 hover:underline"
                         href={github}
                         target="_blank"
                         rel="noopener noreferrer">
-                        Code <Icon name="external" size="1.2em" class="ml-1" />
+                        Code{" "}
+                        <span
+                            class="ml-1"
+                            style="display:inline-block;vertical-align:middle;">
+                            <svg
+                                width="1.1em"
+                                height="1.1em"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                                <polyline points="15 3 21 3 21 9" />
+                                <line x1="10" y1="14" x2="21" y2="3" />
+                            </svg>
+                        </span>
                     </a>
                 </div>
             )
@@ -107,7 +138,24 @@ function formatProjectName(name) {
                     href={github}
                     target="_blank"
                     rel="noopener noreferrer">
-                    Code <Icon name="external" size="1.2em" class="ml-1" />
+                    Code{" "}
+                    <span
+                        class="ml-1"
+                        style="display:inline-block;vertical-align:middle;">
+                        <svg
+                            width="1.1em"
+                            height="1.1em"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M18 13v6a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6" />
+                            <polyline points="15 3 21 3 21 9" />
+                            <line x1="10" y1="14" x2="21" y2="3" />
+                        </svg>
+                    </span>
                 </a>
             )
         }
@@ -141,6 +189,19 @@ function formatProjectName(name) {
                     img.classList.add("opacity-100");
                 });
             }
+        });
+
+        // Popup logic for project images
+        const images = Array.from(document.querySelectorAll("img.astro-fade"));
+        images.forEach((img, idx) => {
+            img.addEventListener("click", () => {
+                const allSrcs = images.map((i) => i.src);
+                window.dispatchEvent(
+                    new CustomEvent("open-popup", {
+                        detail: { images: allSrcs, idx },
+                    })
+                );
+            });
         });
     });
 </script>
