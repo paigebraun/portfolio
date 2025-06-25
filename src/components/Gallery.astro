@@ -46,7 +46,7 @@ import Popup from "./Popup.astro";
                 image.classList.add("image");
 
                 const index = i < 10 ? "0" + i : i;
-                image.src = `./assets/images-${size}/${index}.jpg`;
+                image.src = `/assets/images-${size}/${index}.jpg`;
 
                 imageContainer.append(image);
                 imageSection.append(imageContainer);
@@ -78,7 +78,7 @@ import Popup from "./Popup.astro";
 
         function loadBigImages(image, index, maxSize) {
             setTimeout(() => {
-                image.src = `./assets/images-${maxSize}/${index}.jpg`;
+                image.src = `/assets/images-${maxSize}/${index}.jpg`;
                 image.loading = "lazy";
             }, 2000);
         }
